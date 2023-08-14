@@ -1070,6 +1070,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"SmsForwarderClient@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "SmsForwarderClient@workspace:."
+  dependencies:
+    "@marcoschulte/vue3-progress": ^0.0.7
+    "@vitejs/plugin-vue-jsx": ^3.0.1
+    "@vueuse/core": ^10.3.0
+    naive-ui: ^2.34.4
+    sass: ^1.65.1
+    typescript: ^5.1.6
+    vfonts: ^0.0.3
+    vite: ^4.4.9
+    vite-svg-loader: ^4.0.0
+    vue: ^3.3.4
+  languageName: unknown
+  linkType: soft
+
 "abbrev@npm:1":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
@@ -2346,23 +2363,6 @@ __metadata:
   checksum: f96a3f6d90b92b568a26f71e966cbbc0f63ab85ea6ff6c81284dc869b41510e6cdef99b6b65f9030f0db422bf7c96652a3fff9f2e8fb4a0f069d8f4430359429
   languageName: node
   linkType: hard
-
-"qwq@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "qwq@workspace:."
-  dependencies:
-    "@marcoschulte/vue3-progress": ^0.0.7
-    "@vitejs/plugin-vue-jsx": ^3.0.1
-    "@vueuse/core": ^10.3.0
-    naive-ui: ^2.34.4
-    sass: ^1.65.1
-    typescript: ^5.1.6
-    vfonts: ^0.0.3
-    vite: ^4.4.9
-    vite-svg-loader: ^4.0.0
-    vue: ^3.3.4
-  languageName: unknown
-  linkType: soft
 
 "readable-stream@npm:^3.6.0":
   version: 3.6.0
