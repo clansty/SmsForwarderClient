@@ -20,7 +20,8 @@
     "vfonts": "^0.0.3",
     "vite": "^4.4.9",
     "vite-svg-loader": "^4.0.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue3-infinite-scroll-better": "^2.2.0"
   },
   "packageManager": "yarn@3.5.1"
 }

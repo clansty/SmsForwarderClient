@@ -1204,6 +1204,7 @@ __metadata:
     vite: ^4.4.9
     vite-svg-loader: ^4.0.0
     vue: ^3.3.4
+    vue3-infinite-scroll-better: ^2.2.0
   languageName: unknown
   linkType: soft
 
@@ -2922,6 +2923,13 @@ __metadata:
     vue-demi-fix: bin/vue-demi-fix.js
     vue-demi-switch: bin/vue-demi-switch.js
   checksum: ff44b9372b8224590514252a2f73363cced6062205f9628a6b130dccb80e2023d55cd9d1da94aeb68d5539b7ea9eedcecf88ab281a3a9ff48b8db4c5366b9643
+  languageName: node
+  linkType: hard
+
+"vue3-infinite-scroll-better@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "vue3-infinite-scroll-better@npm:2.2.0"
+  checksum: e2b40ed217826204dc103f8d193ee26bf461abcbd82bab47d084bf5ec7c26dc5fb7032003aa881dbd977a74b3b09983c4160e00871b13b308327443f6ab4671f
   languageName: node
   linkType: hard
 

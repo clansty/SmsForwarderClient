@@ -1,7 +1,7 @@
-import { defineComponent, effect, PropType, ref } from 'vue';
+import { defineComponent, watch, PropType, ref } from 'vue';
 import { Sms } from '@/types/api';
 import api from '@/requests/api.ts';
-import { NCard, NTime, NSpace, NButton } from 'naive-ui';
+import { NCard, NTime, NSpace, NButton, useMessage, NSpin } from 'naive-ui';
 import Right from '@/icons/right.svg';
 import Left from '@/icons/left.svg';
 import Sim from '@/icons/sim.svg';
@@ -13,23 +13,52 @@ export default defineComponent({
   },
   setup(props) {
     const page = ref(1);
+    const allLoad = ref(false);
+    const load = ref(false);
     const sms = ref<Sms[]>([]);
     const error = ref('');
     const progress = useProgress();
+    const message = useMessage();
 
-    effect(async () => {
+    watch([() => props.server.host], async () => {
+      sms.value = [];
+      page.value = 1;
+      allLoad.value = false;
+      error.value = '';
+      await loadPage();
+    });
+
+    const loadPage = async () => {
+      load.value = true;
       try {
-        sms.value = await progress.attach(api.sms(props.server.host, page.value));
+        const data = await progress.attach(api.sms(props.server.host, page.value));
+        if (data.length === 0) {
+          allLoad.value = true;
+          message.info('已全部加载');
+        }
+        sms.value.push(...data);
         error.value = '';
       }
       catch (e: any) {
-        console.log(e)
-        error.value = e.message;
+        message.error(e.message);
       }
-    });
+      load.value = false;
+    };
+
+    const handleInfiniteOnLoad = () => {
+      if (allLoad.value) return;
+      if (load.value) return;
+      console.log('handleInfiniteOnLoad');
+      page.value++;
+      loadPage();
+    };
 
     return () =>
-      <NSpace vertical>{
+      <NSpace
+        vertical
+        v-infinite-scroll={handleInfiniteOnLoad}
+        infinite-scroll-distance={50}
+      >{
         sms.value.map(it => <NCard title={it.name}>
           {{
             'header-extra': () => <div style={{ display: 'flex', 'align-items': 'center' }}>
@@ -44,11 +73,7 @@ export default defineComponent({
           }}
         </NCard>)
       }
-        <NSpace align="center">
-          <NButton disabled={page.value < 2} onClick={() => page.value--}><Left /></NButton>
-          {page.value}
-          <NButton onClick={() => page.value++}><Right /></NButton>
-        </NSpace>
+        {load.value && <NSpin style={{ width: '100%' }} />}
       </NSpace>;
   },
 });

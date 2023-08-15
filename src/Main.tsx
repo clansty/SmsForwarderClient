@@ -51,9 +51,9 @@ export default defineComponent({
           </NSpace>
           <SmsDisplay server={selectedServer.value!} />
         </NSpace>
+        <SendSmsForm v-model:show={sendFormShow.value} server={selectedServer.value!} />
       </NLayoutContent>}
       <AddServerForm v-model:show={addFormShow.value} add={server => servers.value.push(server)} />
-      <SendSmsForm v-model:show={sendFormShow.value} server={selectedServer.value!} />
     </NLayout>;
   },
 });
