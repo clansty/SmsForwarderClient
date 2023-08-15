@@ -26,7 +26,7 @@ export default defineComponent({
       allLoad.value = false;
       error.value = '';
       await loadPage();
-    });
+    }, { immediate: true });
 
     const loadPage = async () => {
       load.value = true;
