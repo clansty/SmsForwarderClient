@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@marcoschulte/vue3-progress": "^0.0.7",
+    "@tauri-apps/api": "^1.4.0",
+    "@tauri-apps/cli": "^1.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vueuse/core": "^10.3.0",
     "naive-ui": "^2.34.4",

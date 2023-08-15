@@ -15,10 +15,7 @@ import SendSmsForm from '@/components/SendSmsForm.tsx';
 
 export default defineComponent({
   setup() {
-    const servers = useStorage<Server[]>('servers', [{
-      name: 'K40',
-      host: 'http://11.11.1.187:5000',
-    }]);
+    const servers = useStorage<Server[]>('servers', []);
     const selectedServerName = ref('');
     const selectedServer = computed(() => servers.value.find(it => it.name === selectedServerName.value));
     const menuOptions = computed(() => servers.value.map(it => ({

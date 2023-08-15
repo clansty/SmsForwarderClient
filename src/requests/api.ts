@@ -1,16 +1,28 @@
 import { Battery, Sms } from '@/types/api';
+import { Body, fetch as tauriFetch, ResponseType } from '@tauri-apps/api/http';
 
 const baseRequest = async (url: string, body?: any) => {
-  const req = await fetch(url, {
-    method: 'POST',
-    body: body && JSON.stringify(body),
-  });
-  const res = await req.json() as {
+  let res: {
     'timestamp': number,
     'code': number,
     'msg': string,
     data: any
   };
+  if ('__TAURI_IPC__' in window) {
+    const req = await tauriFetch(url, {
+      method: 'POST',
+      body: Body.json(body),
+      responseType: ResponseType.JSON,
+    });
+    res = req.data as any;
+  }
+  else {
+    const req = await fetch(url, {
+      method: 'POST',
+      body: body && JSON.stringify(body),
+    });
+    res = await req.json();
+  }
   if (res.code === 200) return res.data;
   else throw new Error(res.msg);
 };

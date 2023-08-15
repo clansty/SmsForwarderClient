@@ -23,6 +23,7 @@ export default defineComponent({
         error.value = '';
       }
       catch (e: any) {
+        console.log(e)
         error.value = e.message;
       }
     });
