@@ -20,14 +20,6 @@ export default defineComponent({
     const progress = useProgress();
     const message = useMessage();
 
-    watch([() => props.server.host], async () => {
-      sms.value = [];
-      page.value = 1;
-      allLoad.value = false;
-      error.value = '';
-      await loadPage();
-    }, { immediate: true });
-
     const loadPage = async () => {
       load.value = true;
       try {
@@ -44,6 +36,14 @@ export default defineComponent({
       }
       load.value = false;
     };
+
+    watch([() => props.server.host], async () => {
+      sms.value = [];
+      page.value = 1;
+      allLoad.value = false;
+      error.value = '';
+      await loadPage();
+    }, { immediate: true });
 
     const handleInfiniteOnLoad = () => {
       if (allLoad.value) return;
