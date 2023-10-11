@@ -1,11 +1,7 @@
-# Vue 3 + Typescript + Vite
+# SmsForwarderClient
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+为 [SmsForwarder](https://github.com/pppscn/SmsForwarder) 设计的客户端
 
-## Recommended IDE Setup
+[<img src="https://user-images.githubusercontent.com/18461360/167066042-8f25b9de-379f-4ea1-bfa3-002d50cf5da6.svg" height="70"/>](https://www.microsoft.com/store/apps/9NTJMV7NCDLV)
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
-
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+[在线使用](https://smsforwarderclient.pages.dev) （HTTPS 访问时不支持连接非 HTTPS 服务器）
